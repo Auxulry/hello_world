@@ -213,9 +213,105 @@ if (baju === "Putih") { // => kalao tipe datanya bukan boolean kita harus pakai 
   console.log("Baju Kotor");
 }
 
+/**
+ *
+ * ini merupakan declaration dari sebuah function sederhana,
+ * declaration function di tulis dengan keywords function namaFunction()
+ * Jika function tidak memiliki keywords returns dia merupakan void function
+ * yang berarti function tersebut tidak mengembalikan nilai apapaun ketika digunakan
+ * age = 23 itu merupakan initialization parameter dengan nilai awal atau default value,
+ * Ketika kita melakukan pemanggilan function tanpa mengirim parameter age, maka secara default
+ * age itu bernilai 23 dan jika kita memasukan nilai parameter ke 2 nilai age akan sesuai berdasarkan
+ * parameter kedua yang dikirim dari pemanggilan function
+ *
+ *
+ * @returns string
+ */
+function greet(name, age = 23) {
+  // Penggungaan string literal atau ` ketika ingin menggunakan variable/paramter harus dengan ${}
+  return `Hello, ${name}. My Age is ${age} yo`;
+}
+
+const greeting = greet("Akbar", 24); // => Jika function memiliki keywords return didalamnya bisa menggunakan variable
+
+console.log(greeting);
+
+console.log(greet("Akbar")); // => Function bisa digunakan langsung tanpa variable seperti contoh berikut
+
+/**
+ *
+ * * Perkalian
+ * / Pembagian
+ * + Penjumlahan
+ * - Pengurangan
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns
+ */
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(5, 3)); // => Output selalu a + b dalam kasus ini argument nya bernilai 5 dan 3 hasilnya 8
 
 
+function fizzBuzz(number) {
+  if (number % 2 === 0) {
+    return "Fizz";
+  }
 
+  if (number % 3 === 0) {
+    return "Buzz";
+  }
+
+  if (number % 5 === 0) {
+    return "FizzBuzz";
+  }
+
+  return "Failed";
+}
+
+console.log(fizzBuzz(2)); // => Output Fizz
+console.log(fizzBuzz(3)); // => Output Buzz
+console.log(fizzBuzz(5)); // => Output FizzBuzz
+console.log(fizzBuzz(7)); // => Output Failed
+
+// Anonymous Function
+const greetAnon = function (name) {
+  return `Hello, ${name} from anonymous function`;
+}
+
+console.log(greetAnon("Akbar"));
+
+// Arrow Function
+const greetArrow = (name) => `Hello, ${name} from Arrow Function`;
+
+console.log(greetArrow("Akbar"));
+
+/**
+ * class itu di definisikan dengan keywords class
+ * class juga memiliki constructor, dimana constructor akan selalu di akses di awal ketika
+ * kita melakukan pembuatan object baru dari class dengan keywords new Car("Toyota", "Camry", 2020)
+ * pada dalam constructor kita menggunakan keywords this. untuk mendefinisikan sebuah property,
+ * didalam object. Mirip dengan tipe data object lainya class juga punya property
+ */
+class Car {
+  constructor(name, brand, year) {
+    this.name = name;
+    this.brand = brand;
+    this.year = year;
+  }
+
+  information() {
+    return `${this.name} have brand from ${this.brand} and build in ${this.year}`;
+  }
+}
+
+const car = new Car("Toyota", "Camry", 2020);
+console.log(car.information());
+car.name = "Daihatsu";
+console.log(car.information());
 
 
 
