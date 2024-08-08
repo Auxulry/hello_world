@@ -298,20 +298,119 @@ console.log(greetArrow("Akbar"));
  */
 class Car {
   constructor(name, brand, year) {
-    this.name = name;
-    this.brand = brand;
-    this.year = year;
+    this._name = name;
+    this._brand = brand;
+    this._year = year;
   }
 
   information() {
-    return `${this.name} have brand from ${this.brand} and build in ${this.year}`;
+    return `${this.name} have brand from ${this._brand} and build in ${this._year}`;
+  }
+
+  // ini adalah setter untuk merubah nilai dari sebuah property
+  setName(name) {
+    this._name = name;
+  }
+
+  // ini adalah getter untuk mengambil data dari sebuah property
+  getName() {
+    return this.name;
+  }
+
+  // ini merupakan contoh penggunaan seters dengan keywors set
+  set name(value) {
+    if (value !== "") {
+      this._name = value;
+    } else {
+      console.log("the value must be not empty string.");
+    }
+  }
+
+  // ini merupakan contoh penggunaan getters dengan keywords get
+  get name() {
+    return this._name;
   }
 }
 
 const car = new Car("Toyota", "Camry", 2020);
 console.log(car.information());
-car.name = "Daihatsu";
+// car.setName("Daihatsu");
+car.name = "Daihatsu"; // menggunakan setter untuk merubah data dari property yang ada di class
 console.log(car.information());
+console.log(car.name);
+
+/**
+ * Animal merupakan sebuah parent class yang memiliki property name dan method speak
+ */
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+/**
+ * Dog merupakan sebuah children class yang mewarisi semua yang ada didalam class Animal,
+ * baik itu property maupun method
+ */
+class Dog extends Animal {
+  speak() {
+    console.log("What the dog do'in");
+  }
+}
+
+const dog = new Dog("Holy");
+dog.speak();
+
+/**
+ * Keywords Super digunakan untuk mengakses isi dari parent class
+ */
+class Cat extends Animal {
+  constructor(name, color) {
+    super(name)
+    this.color = color;
+  }
+
+  speak() {
+    super.speak();
+    console.log(`${this.name} meows.`);
+  }
+}
+
+const cat = new Cat("Whisker", "Gray")
+cat.speak();
+
+
+class MathUtil {
+  static penjumlahan(a, b) {
+    return a + b;
+  }
+
+  static perkalian(a, b) {
+    return a * b;
+  }
+}
+
+console.log(MathUtil.penjumlahan(1, 2)); // output 3
+console.log(MathUtil.perkalian(5, 3)); // output 15
+
+/**
+ *
+ * Naming Convension Class biasanya menggunakan PascalCase atau sebagai contoh LoanDisbursement
+ * Naming Convension variable biasanya itu camelCase atau variableName
+ * Naming Convension function biasanya itu camelCase atau functionName
+ *
+ */
+
+
+
+
+
+
+
 
 
 
